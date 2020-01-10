@@ -7,7 +7,6 @@ const initialState = {
 };
 
 const reducer = (state, action) => {
-  console.log(state, action);
   const { past, present, future } = state;
 
   switch (action.type) {
@@ -35,11 +34,7 @@ const reducer = (state, action) => {
       if (newPresent === present) {
         return state;
       }
-      console.log({
-        past: [...past, present],
-        present: newPresent,
-        future: []
-      });
+
       return {
         past: [...past, present],
         present: newPresent,
@@ -76,9 +71,14 @@ const useHistory = initialPresent => {
     }
   }, [canRedo, dispatch]);
 
-  const set = useCallback(newPresent => dispatch({ type: 'SET', newPresent }), [
-    dispatch
-  ]);
+  const set = useCallback(
+    newPresent => {
+      console.log('callback실행');
+
+      dispatch({ type: 'SET', newPresent });
+    },
+    [dispatch]
+  );
 
   const clear = useCallback(() => dispatch({ type: 'CLEAR', initialPresent }), [
     dispatch
