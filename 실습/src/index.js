@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import useUndo from './use-history';
 import './styles.scss';
-import App from './pratice/index';
-import Rsp from './가위바위보/Rsp';
+// import App from './pratice/index';
+// import Rsp from './가위바위보/Rsp';
+import App from './apollo/App';
 
 // function App() {
 //   const { state, set, undo, redo, clear, canUndo, canRedo } = useUndo({});
@@ -40,4 +41,4 @@ import Rsp from './가위바위보/Rsp';
 // }
 
 const rootElement = document.getElementById('root');
-ReactDOM.render(<Rsp />, rootElement);
+ReactDOM.render(<App />, rootElement);
